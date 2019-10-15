@@ -1,123 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-
  <head>
  	<meta charset="utf-8">
-    <title>Exercise 1: Twitter Layout</title>
-    <link rel="stylesheet" type="text/css" href="e1_style.css">
+    <title>Library</title>
+    <link rel="stylesheet" type="text/css" href="library_style.css">
  </head>
-
  <body>
- 	<!-- The large pfp -->
- 	<div id="bigProfilePicCircle">
- 		<img src="uoft.jpg">
+ 	<h1>Library System</h1>
+ 	<p>Library circulation system.</p>
+
+ 	<h2>Books in Library Circulation</h2>
+ 	<form id='bookAddForm'>
+ 		<input id='newBookName' type="text" placeholder="Book name">
+ 		<input id='newBookAuthor' type="text" placeholder="Author">
+ 		<input id='newBookGenre' type="text" placeholder="Genre">
+ 		<input type="submit" value="Add Book to Library">
+ 	</form>
+ 	<br>
+ 	<table id='bookTable'>
+ 		<tbody>
+	 		<tr>
+	 			<th>
+	 				BookID
+	 			</th>
+	 			<th>
+	 				Title
+	 			</th>
+	 			<th>
+	 				Patron card number (if loaned out)
+	 			</th>
+	 		</tr>
+	 		<tr>
+	 			<td>
+	 				0
+	 			</td>
+	 			<td>
+	 				<strong>Harry Potter</strong>
+	 			</td>
+	 			<td>
+	 				0
+	 			</td>
+	 		</tr>
+	 		<tr>
+	 		 	<td>
+	 				1
+	 			</td>
+	 		 	<td>
+	 				<strong>1984</strong>
+	 			</td>
+	 			<td>
+
+	 			</td>
+	 		</tr>
+	 		<tr>
+	 			<td>
+	 				2
+	 			</td>
+	 		 	<td>
+	 				<strong>A Brief History of Time</strong>
+	 			</td>
+	 			<td>
+
+	 			</td>
+	 		</tr>
+ 		</tbody>
+ 	</table>
+
+ 	<br>
+
+ 	<h2>Book Info</h2>
+ 	<form id='bookInfoForm'>
+ 		<input id='bookInfoId' type="text" placeholder="Book Id">
+ 		<input type="submit" value="Get Book info">
+ 	</form>
+
+ 	<div id=bookInfo>
+ 		<p>Book Id: <span>2</span></p>
+ 		<p>Title: <span>A Brief History of Time	</span></p>
+ 		<p>Author: <span>S. Hawking</span></p>
+ 		<p>Genre: <span>Cosmology</span></p>
+ 		<p>Currently loaned out to: <span>N/A</span></p>
  	</div>
 
- 	<!-- The header -->
- 	<div id="header">
- 		<!-- Twitter logo goes in here -->
- 		<div class="birdLogo">
- 			<img src="bird.png" class="birdLogo">
- 		</div>	
-		
+ 	<br>
+ 	<h2>Current Loans</h2>
+
+ 	<h3>Loan out Book</h3>
+ 	<form id='bookLoanForm'>
+ 		<input id='loanBookId' type="text" placeholder="Book Id">
+ 		<input id='loanCardNum' type="text"  placeholder="Card Number">
+ 		<!-- <input id='bookGenre' type="text" name="bookGenre" placeholder="Genre"> -->
+ 		<input type="submit" value="Loan Book">
+ 	</form>
+
+ 	<h3>Add new Patron</h3>
+ 	<form id='patronAddForm'>
+ 		<input id='newPatronName' type="text" name="patronName" placeholder="Patron name">
+ 		<input type="submit" value="Add Patron">
+ 	</form>
+
+ 	<div id=patrons>
+	 	<div class='patron'>
+	 		<p>Name: <span class='bold'>Jim John</span></p>
+	 		<p>Card Number: <span class='bold'>0</span></p>
+	 		<h4>Books on loan:</h4>
+	 		<table class='patronLoansTable'>
+	 			<tbody>
+			 		<tr>
+			 			<th>
+			 				BookID
+			 			</th>
+			 			<th>
+			 				Title
+			 			</th>
+			 			<th>
+			 				Status
+			 			</th>
+			 			<th>
+			 				Return
+			 			</th>
+
+			 		</tr>
+			 		<tr>
+			 			<td>
+			 				0
+			 			</td>
+			 			<td>
+			 				<strong>Harry Potter</strong>
+			 			</td>
+			 			<td>
+			 				<span class='green'>Within due date</span>
+			 			</td>
+			 			<td>
+		 					<button class='return'>return</button>
+		 				</td>
+			 		</tr>
+		 		</tbody>
+	 		</table>
+	 	</div>
+	 	<div class='patron'>
+	 		<p>Name: <span>Kelly Jones</span></p>
+	 		<p>Card Number: <span>1</span></p>
+	 		<h4>Books on loan:</h4>
+	 		<table class='patronLoansTable'>
+	 			<tbody>
+			 		<tr>
+			 			<th>
+			 				BookID
+			 			</th>
+			 			<th>
+			 				Title
+			 			</th>
+			 			<th>
+			 				Status
+			 			</th>
+			 			<th>
+			 				Return
+			 			</th>
+			 		</tr>
+		 		</tbody>
+	 		</table>
+	 	</div>
  	</div>
 
-	<!-- The big banner image -->
- 	<div id="banner"> <!-- Just holds the banner image, don't need to style this div. -->
+ 	<br><br>
 
- 		<!-- Banner image goes in here -->
- 		<img src="uoft_banner.jpeg" class="bannerPic">
- 	</div>
-
- 	<div id="profileStats">
- 		<ul>
- 			<!-- Style the list element: Label and number -->
- 			<li>Tweets<br><span class="profileStatsNumber">478</span></li>
-
- 			<!-- Add the rest of the stats below -->
- 			<li>Followers<br><span class="profileStatsNumber">23k</span></li>
- 			<li>Following<br><span class="profileStatsNumber">12</span></li>
- 			<li>Likes<br><span class="profileStatsNumber">10.3k</span></li>
- 		</ul>
- 	</div>
-
- 	<!-- The Profile Info Section -->
- 	<div id="profileInfo">
- 		<h2>University of Toronto</h2>
- 		<p class="grey">@UofT</p>
- 		<p>
- 			Connect with Canada's top university and one of the world’s strongest academic and research powerhouses. Find the latest news & events @uoftnews. #UofT
-		</p>
- 	</div>
-
- 	<!-- The Timeline Section -->
- 	<div id='timeline'>
-
- 		<div class='timelineHeader'>
- 			<ul>
-	 			<li><a href="">Tweets</a></li>
-	 			<li><a href="">Tweets & Replies</a></li>
- 			</ul>
- 		</div>
-
- 		<!-- First tweet -->
- 		<div class='tweet'>
- 			<!-- Put the tweet icon and content in this div.
- 			You should have two divs inside this div: one that is a container for the tweet icon,
- 			and one that has the content of the tweet.
- 			Remember to look in the starter CSS for appropriate class names that
- 			match these descriptions. -->
-			<div class='tweetIconContainer'>
-				<img src="uoft.jpg" alt="twt1" class='tweetIcon'>
- 			</div>
- 			<div class='tweetContent'>
- 				<h3>University of Toronto <span class="grey">@UofT</span></h3>
-				<p>Another great day at UofT! <span class='hashtag'>#UofT #GreatDay</span>
-				</p>
- 			</div>
- 		</div>
-
- 		<!-- Second tweet -->
- 		<div class='tweet'>
- 			<!-- Reuse all of the tweet classes from the one above,
- 			and just change the content of the tweet. -->
- 			<div class='tweetIconContainer'>
-					<img src="uoft.jpg" alt="twt1" class='tweetIcon'>
- 			</div>
- 			
- 			<div class='tweetContent'>
- 				<h3>University of Toronto <span class="grey">@UofT</span></h3>
-				<p>Check out some books at <span class='hashtag'>#robarts</span>
-				</p>
-				<div class='tweetContentPicture'>
-					<img src="robarts.jpg" alt="robarts">
- 				</div>
- 			</div>
- 			
- 		</div>
-
-		<!-- Add your own tweet below -->
-		<div class='tweet'>
- 			<!-- Reuse all of the tweet classes from the one above,
- 			and just change the content of the tweet. -->
- 			<div class='tweetIconContainer'>
-				<img src="deer.jpg" alt="twt1" class='tweetIcon'>
- 			</div>
- 			
- 			<div class='tweetContent'>
- 				<h3>Willyum_Lu<span class="grey">@UofT</span></h3>
-				<p>Checkout my Instagram @willyum_lu <span class='hashtag'>#mildyasthetic</span>
-				</p>
-				<div class='tweetContentPicture'>
-					<img src="insta.jpg" alt="insta">
- 				</div>
- 			</div>
- 			
- 		</div>
-
-
-
-
- 	</div>
+ 	<script type="text/javascript" src="library.js"></script>
  </body>
 </html>
